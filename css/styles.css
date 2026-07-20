@@ -3,6 +3,10 @@
     src: url(../font/Montserrat-VariableFont_wght.ttf);
 }
 
+:root {
+    --primary-color: rgb(0, 155, 190);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -33,14 +37,14 @@ header::before {
     z-index: -1;
 }
 
-header {
+header > .container {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
 header .profile-pic {
-    background-image: url('../img/profile pic.jpg');
+    background-image: url('../img/profile-pic.png');
     background-size: cover;
     background-position: center;
     width: 300px;
@@ -60,6 +64,7 @@ header .profile-pic {
     position: absolute;
     bottom: 0;
     color: white;
+    text-shadow: 3px 3px 6px black;
 }
 
 header .about-me {
@@ -88,8 +93,12 @@ header .about-me {
     transform: translateY(-2px);
 }
 
+main {
+    margin: 60px 0;
+}
+
 main h2 {    
-    margin: 60px 0 30px 0;
+    margin-bottom: 30px;
 }
 
 main .work-container {
@@ -144,12 +153,57 @@ main .work-container .work-card:hover {
     transition: 100ms ease-in-out;
 }
 
+footer {
+    padding: 20px 0;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+}
+
+footer > .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+footer .contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+footer .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .contact-list svg {
+    width: 20px;
+    fill: white;
+}
+
+footer .contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+footer .footer-img {
+    max-width: 200px;
+    object-fit: cover;
+}
+
+footer .social-links {
+    justify-content: start;
+    align-items: center;
+}
+
 @media (width >= 500px) and (width <= 1000px) {
     .container {
         padding: 0 80px;
     }
 
-    header {
+    header > .container {
         margin-top: 100px;
         display: block;
     }
@@ -180,4 +234,34 @@ main .work-container .work-card:hover {
     header .about-me p {
         margin: 30px auto;
     }
+}
+
+@media (width < 500px) {
+    header > .container,
+    footer .container {
+        flex-direction: column;
+    }
+
+    header .about-me {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    footer {
+        width: 100%;
+    }
+
+    footer .container {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    footer .social-links {
+        justify-content: center;
+    }
+
+    footer .footer-img {
+        max-width: 100%;
+    }
+
 }
